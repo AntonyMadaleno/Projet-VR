@@ -7,14 +7,14 @@ public class fire_at_player : MonoBehaviour
 
     public GameObject   arrow_prefab;
     public float         fire_rate;
-    private float        fire_tick;
-    private TimeSystem timeSystem;
+    public float        fire_tick;
+    private TimeSystem2 timeSystem;
     public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        timeSystem = GameObject.Find("System").GetComponent<TimeSystem>();
+        timeSystem = GameObject.Find("System").GetComponent<TimeSystem2>();
         player = GameObject.Find("Player");
         fire_tick = 0;
     }
@@ -25,7 +25,7 @@ public class fire_at_player : MonoBehaviour
         if (fire_tick >= fire_rate)
         {
             fire_arrow();
-            fire_tick = Random.Range(-fire_rate/4.0f, fire_rate/4.0f);;
+            fire_tick = Random.Range(-fire_rate/4.0f, fire_rate/4.0f);
         }
         else
             fire_tick += 1*timeSystem.time;

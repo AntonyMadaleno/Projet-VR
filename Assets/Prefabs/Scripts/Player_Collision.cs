@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_Collision : MonoBehaviour
 {
 
-    private int player_hitpoint;
+    public int player_hitpoint;
 
     // Start is called before the first frame update
     void Start()
@@ -21,20 +21,24 @@ public class Player_Collision : MonoBehaviour
 
     void OnTriggerEnter( Collider hit )
     {
-        GameObject collider = hit.gameObject;
-        
-        //Retire 1 HP au joueur
-        player_hitpoint = player_hitpoint - 1;
-
-        if (player_hitpoint <= 0)
+        if (hit.tag == "Entity" || hit.tag == "Arrow")
         {
-            // you loose !
-            return;
+            GameObject collider = hit.gameObject;
+            Debug.Log(hit.name + " " + collider.name);
+            //Retire 1 HP au joueur
+            player_hitpoint = player_hitpoint - 1;
+
+            if (player_hitpoint <= 0)
+            {
+                // you loose !
+                return;
+            }
+
+
+            //Detruit l'objet de la collision
+            Destroy(collider);
         }
-
-
-        //Detruit l'objet de la collision
-        Destroy(collider);
+        
     }
 
 }

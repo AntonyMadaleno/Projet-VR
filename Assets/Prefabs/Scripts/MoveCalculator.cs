@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MoveCalculator : MonoBehaviour
 {
-    private TimeSystem TimeSys;
+    private TimeSystem2 TimeSys;
     public int part;
     private Vector3 oldPos;
     private Vector3 oldRot;
     // Start is called before the first frame update
     void Start()
     {
-        TimeSys = GameObject.Find("System").GetComponent<TimeSystem>();
+        TimeSys = GameObject.Find("System").GetComponent<TimeSystem2>();
         oldPos = transform.position;
         oldRot = transform.eulerAngles;
     }
@@ -34,6 +34,6 @@ public class MoveCalculator : MonoBehaviour
         float p2 = rot2.magnitude;
         oldPos = pos;
         oldRot = rot;
-        TimeSys.add(p*p2*t/2.5f, part);
+        TimeSys.add(Mathf.Max(p*p2*t/2.5f,0.005f), part);
     }
 }

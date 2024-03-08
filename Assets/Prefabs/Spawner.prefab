@@ -45,5 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity_prefab: {fileID: 0}
-  spawn_rate: 100
+  spawn_rate: 50
   spawn_radius: 30
+  skeleton_prefab: {fileID: 0}
+  spawn_tick: 0

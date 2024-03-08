@@ -8,7 +8,7 @@ public class move_to_player : MonoBehaviour
     public GameObject entity;
     public float speed;
     private GameObject player;
-    private TimeSystem timeSystem;
+    private TimeSystem2 timeSystem;
 
     private Vector3 direction;
 
@@ -16,7 +16,7 @@ public class move_to_player : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        timeSystem = GameObject.Find("System").GetComponent<TimeSystem>();
+        timeSystem = GameObject.Find("System").GetComponent<TimeSystem2>();
         // Calculate the normalized vector from entity to player
         direction = player.transform.position - entity.transform.position;
         direction = Vector3.Normalize(direction) * speed;
