@@ -10,6 +10,7 @@ public class fire_at_player : MonoBehaviour
     public float        fire_tick;
     private TimeSystem2 timeSystem;
     public GameObject player;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,8 @@ public class fire_at_player : MonoBehaviour
 
     void fire_arrow()
     {
-        GameObject arrow = Instantiate( arrow_prefab, transform.position, new Quaternion(0,0,0,0) );
+        GameObject arrow = Instantiate( arrow_prefab, transform.position+Vector3.up, new Quaternion(0,0,0,0) );
         arrow.transform.LookAt(player.transform);
+        audioSource.Play();
     }
 }

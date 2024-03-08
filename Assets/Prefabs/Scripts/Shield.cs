@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
+    public AudioSource shieldSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class Shield : MonoBehaviour
         if (other.tag == "Arrow")
         {
             Destroy(other.gameObject);
+            shieldSound.Play();
         }
     }
 }
